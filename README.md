@@ -1,5 +1,6 @@
 ![WIMP Earth Transport](cover.png)
 
+
 # WIMP Earth Transport
 
 **Monte Carlo simulation of dark-matter scattering through Earth's atmosphere and crust, with nuclear recoil predictions for an idealized underground xenon detector.**
