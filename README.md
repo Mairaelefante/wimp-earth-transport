@@ -1,5 +1,6 @@
 ![WIMP Earth Transport](cover.png)
 
+**[Explore the source code](wimp-earth-transport/) · [Scientific notes](wimp-earth-transport/SCIENTIFIC_NOTES.md) · [Benchmark report](wimp-earth-transport/BENCHMARK_REPORT.md)**
 
 # WIMP Earth Transport
 
@@ -67,13 +68,13 @@ The project generates recoil spectra and transport diagnostics across a set of i
 
 ### Nuclear recoil spectra
 
-![Nuclear recoil spectra](recoil_spectra.png)
+![Nuclear recoil spectra](wimp-earth-transport/[`recoil_spectra.png`](wimp-earth-transport/recoil_spectra.png))
 
 The recoil spectra compare predicted detector responses under the different propagation scenarios.
 
 ### Transport diagnostics
 
-![Transport diagnostics](transport_diagnostics.png)
+![Transport diagnostics](wimp-earth-transport/[`transport_diagnostics.png`](wimp-earth-transport/transport_diagnostics.png))
 
 The transport diagnostics illustrate how scattering modifies the trajectories contributing to the underground scoring plane.
 
@@ -85,20 +86,26 @@ The main components are:
 
 | File or folder | Purpose |
 |---|---|
-| `solution.py` | Main computational workflow |
-| `transport_core.py` | Particle propagation, scattering and transport calculations |
-| `run_all.py` | Runs the simulation and associated checks |
-| `inputs/` | Halo, interaction, detector and material parameters |
-| `verification.py` | Numerical and physical consistency checks |
-| `test_physics.py` | Physics-specific tests |
-| `results.csv` | Numerical recoil-spectrum results |
-| `summary.json` | Aggregated simulation results and statistics |
-| `recoil_spectra.png` | Recoil-spectrum visualization |
-| `transport_diagnostics.png` | Transport-analysis visualization |
+| [`solution.py`](wimp-earth-transport/solution.py) | Main computational workflow |
+| [`transport_core.py`](wimp-earth-transport/transport_core.py) | Particle propagation, scattering and transport calculations |
+| [`run_all.py`](wimp-earth-transport/run_all.py) | Runs the simulation and associated checks |
+| [`inputs/`](wimp-earth-transport/inputs/) | Halo, interaction, detector and material parameters |
+| [`verification.py`](wimp-earth-transport/verification.py) | Numerical and physical consistency checks |
+| [`test_physics.py`](wimp-earth-transport/test_physics.py) | Physics-specific tests |
+| [`results.csv`](wimp-earth-transport/results.csv) | Numerical recoil-spectrum results |
+| [`summary.json`](wimp-earth-transport/summary.json) | Aggregated simulation results and statistics |
+| [`recoil_spectra.png`](wimp-earth-transport/recoil_spectra.png) | Recoil-spectrum visualization |
+| [`transport_diagnostics.png`](wimp-earth-transport/transport_diagnostics.png) | Transport-analysis visualization |
 
 ## Running the Simulation
 
 The project uses Python with scientific computing libraries including NumPy, SciPy and Matplotlib.
+
+The simulation source lives in the `wimp-earth-transport/` subdirectory. From the repository root:
+
+```bash
+cd wimp-earth-transport
+```
 
 Install the dependencies:
 
