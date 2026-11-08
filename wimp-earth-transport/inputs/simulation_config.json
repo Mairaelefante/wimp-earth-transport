@@ -1,0 +1,31 @@
+{
+  "stage1_mode": "pure_Si28_homogeneous_slab",
+  "stage1_crust_density_g_cm3": 2.7,
+  "stage1_depth_cm": 100000.0,
+  "stage1_number_histories": 100000,
+  "stage1_seed": 20261026,
+  "stage1_max_collisions_per_history": 1000,
+  "stage1_boundary_convention": "infinite horizontal slab, z=0 top, z=depth scoring plane, z increasing down; exit top is lost; first downward crossing of scoring plane is scored",
+  "stage1_incidence": "normal, monoenergetic, no atmosphere",
+  "stage1_tolerance_sigma": 5.0,
+  "production_note": "Atmospheric and mixed-rock input fixtures are provisional and NOT enabled in stage 1.",
+  "stage2_number_histories": 30000,
+  "stage2_seed": 20261027,
+  "stage2_mode": "layered_atmosphere_mixed_crust_unity_F_monoenergetic_vertical",
+  "benchmark_seed_list": [
+    20261102,
+    20261103
+  ],
+  "benchmark_histories_per_seed": 2500,
+  "benchmark_flux_estimation_samples": 200000,
+  "benchmark_max_collisions_per_history": 400,
+  "benchmark_relative_stderr_target": 0.35,
+  "benchmark_significance_z": 4.0,
+  "benchmark_flux_sampling_seed": 1991,
+  "benchmark_tolerance_rel_energy": 1e-08,
+  "benchmark_tolerance_rel_momentum": 1e-08,
+  "benchmark_halo_reference_frame": "Galactic rest Maxwellian truncated at escape speed, Galilean shifted to laboratory",
+  "benchmark_scoring_convention": "First downward crossing of infinite horizontal plane at detector depth; no subsequent recrossings",
+  "crust_depth_cm": 100000.0,
+  "crust_density_g_cm3": 2.7
+}

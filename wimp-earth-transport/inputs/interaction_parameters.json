@@ -1,0 +1,12 @@
+{
+  "sigma_p_cm2_grid": [1e-36, 1e-35, 1e-34, 4.44e-34],
+  "stage1_sigma_p_cm2": 1e-34,
+  "isospin_conserving": true,
+  "spin_independent": true,
+  "stage1_form_factor": "unity",
+  "production_form_factor": "Helm",
+  "proton_mass_GeV": 0.9382720813,
+  "atomic_mass_unit_GeV": 0.93149410242,
+  "atomic_mass_unit_g": 1.66053906660e-24,
+  "speed_of_light_km_s": 299792.458
+}

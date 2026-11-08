@@ -1,0 +1,35 @@
+{
+  "depth_km": 1.0,
+  "detector_material": "xenon",
+  "liquid_xenon_density_g_cm3": 3.0,
+  "recoil_bin_edges_keV": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    15,
+    20,
+    30,
+    50
+  ],
+  "threshold_keV": 5.0,
+  "efficiency_above_threshold": 1.0,
+  "note": "Final benchmark evaluates recoil rates per kg-day at first downward crossing of infinite detector scoring plane; no fixed path length or finite detector geometry",
+  "xenon_isotope_number_fractions": {
+    "124": 0.00095,
+    "126": 0.00089,
+    "128": 0.0191,
+    "129": 0.26401,
+    "130": 0.04071,
+    "131": 0.21232,
+    "132": 0.26909,
+    "134": 0.10436,
+    "136": 0.08857
+  },
+  "isotopic_abundances_note": "Illustrative terrestrial natural xenon atomic fractions rounded to five decimal places",
+  "efficiency_model": "step_at_threshold_constant_above",
+  "rate_units": "events / kg / day / keV",
+  "scoring_geometry": "infinite horizontal scoring plane; first downward crossing; no repeated crossings"
+}

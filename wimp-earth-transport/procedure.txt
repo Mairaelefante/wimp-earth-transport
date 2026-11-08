@@ -1,0 +1,107 @@
+WIMP EARTH TRANSPORT: REPRODUCIBLE REFERENCE PROCEDURE
+=====================================================
+Frozen illustrative benchmark, 2026-11-02. Source: prior standalone scientific benchmark scenario.
+
+RUN (Python 3.10+, NumPy, SciPy, Matplotlib):
+    python -m pip install -r requirements.txt
+    python solution.py
+    python verification.py
+    python test_physics.py
+    python make_plots.py
+Alternatively, from project directory:
+    python run_all.py
+
+INPUTS (in inputs/):
+ - halo_parameters.json: local density (GeV/cm3), 100-GeV WIMP mass grid,
+   truncated Galactic 3-D Maxwellian, lab velocity vector (km/s).
+ - interaction_parameters.json: sigma_p [cm2] grid, SI coherent A^2 coupling,
+   proton mass, nuclear units and Helm form-factor selection.
+ - atmosphere_layers.csv: ground-to-80-km horizontal homogeneous shells with
+   molecular fractions N2,O2,Ar. Convert molecule fractions to nucleus counts:
+   n_N=2 f_N2*n_mol, n_O=2 f_O2*n_mol, n_Ar=f_Ar*n_mol.
+ - crust_composition.csv: representative mass fractions; n_i=rho*w_i/(A_i*u).
+   'Other' is an effective proxy isotope, NOT a measured mineral.
+ - detector_config.json: xenon isotope number fractions, bins, 5-keV threshold,
+   step efficiency equal to 1 above threshold. No detector resolution.
+ - simulation_config.json: seeds 20261102/20261103, 2500 histories each,
+   200000 flux samples, 400-collision history cap, frozen acceptance tolerances.
+
+COORDINATES:
+  z=0 at ground, increasing downwards; top of atmosphere z=-80 km;
+  detector scoring plane at z=+1 km. Layers are laterally infinite; no
+  radial Earth geometry. Rotate local laboratory basis so +z points opposite
+  the illustrative Galactocentric laboratory velocity vector. This is
+  a fixed illustrative direction, not an astronomy-derived site orientation.
+  Stop at FIRST downward scoring-plane crossing; count each initial WIMP once.
+
+ALGORITHM:
+  1) Validate six input tables and units; freeze SHA256 provenance.
+  2) Sample halo-frame u from a radially truncated 3-D Maxwellian.
+     v_lab = u - v_lab_vector; flux-weight entry by max(v_z,0).
+     Independently estimate incident number flux J = (rhoDM/mchi)*<v_z+>
+     in cm^-2 s^-1 (km/s -> cm/s gives factor 1e5).
+  3) For each isotope, compute sigma_i^0 = sigma_p*A_i^2*(mu_i/mu_p)^2.
+     Compute E_Rmax and Helm F²(q); integrate F² across the recoil-fraction
+     range to obtain sigma_i(v); sample collision recoil fraction via inverse
+     CDF and select isotope with relative weight n_i*sigma_i(v).
+  4) Propagate in piecewise homogeneous atmospheric/crust layers. Draw
+     exponential optical depth T=-ln(1-U), decrement at layer boundaries,
+     update 3-D velocities via exact two-body lab/CM kinematics after hits.
+  5) At first downward detector-plane crossing, calculate isotope-averaged
+     xenon response for each recoil-energy bin. For a planar crossing flux
+     estimator, multiply each arrival contribution by 1/cos(theta_z).
+     Score collisionless and analytic zero-scatter ballistic responses on
+     the SAME initial random directions. A sampled full history includes
+     both zero-scatter and scattered arrivals, counted once. The scattered
+     contribution is separately stored.
+  6) Rate per kg-day per bin:
+       R_b = J * 86400 * (1000/mXe_mean_g) * mean_over_INITIAL_histories[
+             (1/cos_theta_at_crossing) * sum_isotope_number_fractions
+                   integral_bin (d sigma_i/dE_R) * efficiency dE_R ]
+     Divide R_b by bin width to output dR/dE in events/kg/day/keV.
+     Event rate is NOT raw detector-plane crossing count.
+  7) Errors: unbiased per-initial-history sample variance, plus independent
+     incident flux Monte Carlo normalisation error in quadrature. Rates in
+     different bins are statistically correlated; integrated errors use
+     the per-history sum of all bin contributions, NOT sum of bin SE.
+  8) Output results.csv, summary.json, verification_report.json and plots.
+
+INDEPENDENT VERIFICATION:
+ - No import of solution.py and no rerun of its simulation.
+ - Independently derive pure-silicon tau, E_Rmax and recoil kinematics.
+ - Integrate truncated-Maxwell marginal by 1-D quadrature to check flux.
+ - Check exact mass x sigma x recoil-bin grid and units.
+ - Check integrated rates against independent bin-width integration.
+ - Compare zero-scatter Bernoulli outcomes to ray-by-ray analytic P0.
+ - Compare per-seed results at frozen four-sigma acceptance.
+ - In test_physics.py, run a special homogeneous pure-silicon slab with F=1
+   to check the no-collision and conditional first-collision CDF limits.
+
+STUDY LOG / DIAGNOSTIC ITERATIONS:
+ - Stage 1: homogeneous silicon, monoenergetic vertical launch, 3-D elastic
+   collisions and conservation checks.
+ - Stage 2: atmosphere and mixed crust; toy xenon single-path probability.
+ - Stage 3: halo flux-weighted initial states, Helm F², speed-dependent
+   nuclear total cross section and first-plane recoil spectrum.
+ - Final integration: mass/sigma/bin output grid, nine Xe isotope number
+   fractions, independent flux quadrature, integrated and per-bin standard
+   errors, explicit scattered component, file-level verifier, analytic slab
+   tests and frozen acceptance rules.
+
+KNOWN LIMITATIONS (must be acknowledged when presenting):
+ - Fixed flat layered geometry and arbitrary illustrative lab orientation.
+ - Nominal atmosphere and rock fixtures, including effective 'Other' nucleus;
+   no site-specific measured geology, isotope-resolved crust or climate data.
+ - Stationary targets, nonrelativistic elastic SI/isospin-conserving model.
+ - Speed-grid interpolation (2.5-5 km/s) and 16-point Gaussian quadrature for
+   xenon response, 81-bin recoil-fraction CDF for Helm sampling.
+ - Infinite planar scoring surface; counting ONLY first downward arrivals
+   ignores later back-and-forth crossings below detector depth. Near-grazing
+   1/cos weights can be high variance. Not a finite-volume detector simulation.
+ - Detector efficiency is a perfect step and no xenon resolution/backgrounds
+   or event-by-event exposure are supplied. Idealized rate per kg per day.
+ - Statistically unresolved bins and low rare-scatter effective N are reported
+   as such; any 'overall verifier PASS' means tested limits only, not physics
+   beyond these assumptions.
+ - Large reference sigma_p values are hypothetical benchmark probes, not
+   empirically allowed dark-matter cross-section constraints.

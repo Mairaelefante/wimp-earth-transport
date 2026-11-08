@@ -1,0 +1,61 @@
+FROZEN REFERENCE BENCHMARK ACCEPTANCE RULES (2026-11-02)
+=========================================================
+These rules and all inputs/*.json / *.csv define the candidate reference fixture.
+Do NOT adjust acceptance after inspecting a submitted candidate's answers.
+
+1. SCHEMA: exact configured mass x sigma x energy-bin grid (no missing/extra
+   rows); required units events/kg/day/keV; finite nonnegative rates, errors;
+   ordered recoil bins; normalized air/crust/xenon abundances.
+   Mass/energy independent formula comparisons: relative tolerance 1e-8;
+   input composition absolute tolerance 1e-7 (air initial raw mole fractions
+   allowed 1e-3 and are renormalized before simulation).
+
+2. PHYSICAL KINEMATICS: E_R in [0,E_Rmax]; reference F(0)^2=1;
+   normalized WIMP two-body collision relative energy error <=1e-8 and
+   relative vector momentum error <=1e-8 in representative sampled cases.
+
+3. HOMOGENEOUS LIMIT: for pure Si-28, 100 GeV WIMP, 220 km/s,
+   sigma_p=1e-34 cm^2 and 1 km slab at 2.7 g/cm^3:
+   compare independent analytic reduced masses, E_Rmax, n, sigma,
+   lambda and tau to their independently calculated values.
+   Bernoulli no-collision count follows exp(-tau): absolute discrepancy
+   <= 4 sigma + 1/N (standard binomial error); for truncated exponential
+   first-collision distance CDF, reject if |empirical-conditional-model|
+   > 4 standard errors + 1/N at preselected s=0.25L, 0.5L, 0.75L.
+   Under isotropic CM F=1, x=E_R/E_Rmax must be uniform; mean(x)
+   within 4/sqrt(12N), and CDF P(x<=0.5) within 4*0.5/sqrt(N).
+
+4. MONTE CARLO ZERO-SCATTER CHECK: each incident trajectory has its own
+   analytic P0=exp(-tau(ray)). Require |n_zero_reached-sum_i P0_i| <=
+   4 sqrt(sum_i P0_i(1-P0_i)) + 1 count.
+   The 4 sigma threshold is a deliberately conservative diagnostic
+   for four cross sections and multiple comparisons, NOT proof of correctness.
+
+5. STABILITY: compare integrated per-seed rates using their per-seed
+   independent-history standard errors; flag |rate_a-rate_b| >
+   4 sqrt(stderr_a^2 + stderr_b^2) (when defined).
+   Target relative statistical/flux-combined stderr <=35% of
+   integrated *each* component; failure flags low precision, NOT bogus data.
+   Stderr of combined N observations should be consistent with the
+   1/sqrt(N) sampling law in expectation; NOT required to shrink
+   monotonically for each realized pair of batches.
+
+6. NORMALIZATION: independent Maxwellian truncated halo flux integration
+   must agree with independent Monte Carlo flux estimator within
+   5 standard errors plus 0.5% relative guard for integration precision.
+   Integrated rate must equal sum(diff rate times bin width) to 1e-9
+   relative; per-bin rates must be divided by their bin widths exactly.
+   For the same initial histories, collisionless rates must scale
+   linearly with sigma_p to 1e-9 relative. Ballistic <= collisionless.
+   First downward scoring-plane crossing only; never count a single
+   history's correlated crossings as independent observations.
+
+7. LIMITATIONS: results with no events, excessive truncation, or
+   failure to resolve the scattered contribution are flagged, NOT filled
+   with a positive floor. This reference model is not a measured DM
+   flux, realistic detector simulation or empirically allowed cross
+   section scenario.
+
+The file-based verifier tests the required schema, independent analytic
+formulae, rate/flux normalization and uncertainty diagnostics. The dedicated
+physics tests check propagation and the full two-body update.

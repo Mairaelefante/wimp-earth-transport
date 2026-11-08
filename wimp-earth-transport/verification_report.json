@@ -1,0 +1,297 @@
+{
+  "overall_pass": true,
+  "checks": [
+    {
+      "name": "six required input fixtures exist",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "nonempty benchmark outputs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "natural xenon isotope numbers normalized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mixed crust mass fractions normalized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "atmospheric molecular fractions normalized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contiguous atmospheric layers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "physical detector energy bins",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exact configured mass-cross-section-bin coverage",
+      "passed": true,
+      "detail": "36 rows"
+    },
+    {
+      "name": "correct rates, uncertainties and declared units",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "scattered-only component bounded by full transport",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "analytic ballistic spectrum never exceeds collisionless",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "independent pure silicon reference tau and recoil endpoint",
+      "passed": true,
+      "detail": "tau=0.225475; Emax=17.671 keV; mean-free-path=4.435 km"
+    },
+    {
+      "name": "independent normalized incident halo flux",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frozen input file SHA256 provenance",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "independent seed bookkeeping",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "statuses partition (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "first crossing / zero and scattered classification (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "finite physically valid scattering diagnostics (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "analytic zero-scatter test (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": "z=-0.80"
+    },
+    {
+      "name": "independent integrated-bin-width recovery (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seed stability collisionless (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": "z=2.06"
+    },
+    {
+      "name": "seed stability ballistic (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": "z=2.10"
+    },
+    {
+      "name": "seed stability transport (m=100, sigma=1e-36)",
+      "passed": true,
+      "detail": "z=2.04"
+    },
+    {
+      "name": "statuses partition (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "first crossing / zero and scattered classification (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "finite physically valid scattering diagnostics (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "analytic zero-scatter test (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": "z=1.37"
+    },
+    {
+      "name": "independent integrated-bin-width recovery (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seed stability collisionless (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": "z=2.06"
+    },
+    {
+      "name": "seed stability ballistic (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": "z=2.30"
+    },
+    {
+      "name": "seed stability transport (m=100, sigma=1e-35)",
+      "passed": true,
+      "detail": "z=1.58"
+    },
+    {
+      "name": "statuses partition (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "first crossing / zero and scattered classification (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "finite physically valid scattering diagnostics (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "analytic zero-scatter test (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": "z=-0.96"
+    },
+    {
+      "name": "independent integrated-bin-width recovery (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seed stability collisionless (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": "z=2.06"
+    },
+    {
+      "name": "seed stability ballistic (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": "z=2.05"
+    },
+    {
+      "name": "seed stability transport (m=100, sigma=1e-34)",
+      "passed": true,
+      "detail": "z=1.81"
+    },
+    {
+      "name": "statuses partition (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "first crossing / zero and scattered classification (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "finite physically valid scattering diagnostics (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "analytic zero-scatter test (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": "z=-1.23"
+    },
+    {
+      "name": "independent integrated-bin-width recovery (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seed stability collisionless (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": "z=2.06"
+    },
+    {
+      "name": "seed stability ballistic (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": "z=1.46"
+    },
+    {
+      "name": "seed stability transport (m=100, sigma=4.44e-34)",
+      "passed": true,
+      "detail": "z=1.15"
+    },
+    {
+      "name": "collisionless rate linear in sigma_p",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "diagnostics": [
+    {
+      "mchi_GeV": 100.0,
+      "sigma_p_cm2": 1e-36,
+      "zero_scatter_z": -0.8040186054955806,
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "truncated": 0
+    },
+    {
+      "mchi_GeV": 100.0,
+      "sigma_p_cm2": 1e-35,
+      "zero_scatter_z": 1.3663126314472411,
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "truncated": 0
+    },
+    {
+      "mchi_GeV": 100.0,
+      "sigma_p_cm2": 1e-34,
+      "zero_scatter_z": -0.9603237339798769,
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "truncated": 0
+    },
+    {
+      "mchi_GeV": 100.0,
+      "sigma_p_cm2": 4.44e-34,
+      "zero_scatter_z": -1.2299291092930145,
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "truncated": 0
+    }
+  ],
+  "scope": "Independent input, analytic, halo-normalisation and file-level checker; supplemental transport tests in test_physics.py",
+  "precision_warning": "An overall PASS is a set of frozen checks, not an experimental validation or proof of statistical precision."
+}

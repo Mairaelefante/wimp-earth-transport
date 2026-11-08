@@ -1,0 +1,6 @@
+altitude_bottom_km,altitude_top_km,density_g_cm3,molecular_fraction_N2,molecular_fraction_O2,molecular_fraction_Ar
+0,5,0.00085,0.7808,0.2095,0.0093
+5,10,0.00045,0.7808,0.2095,0.0093
+10,20,0.00015,0.7808,0.2095,0.0093
+20,40,0.000017,0.7808,0.2095,0.0093
+40,80,0.00000030,0.7808,0.2095,0.0093

@@ -1,0 +1,23 @@
+{
+  "dark_matter_density_GeV_cm3": 0.3,
+  "wimp_mass_GeV": 100.0,
+  "halo_speed_scale_km_s": 220.0,
+  "escape_speed_km_s": 544.0,
+  "lab_velocity_galactic_km_s": [
+    0.0,
+    232.0,
+    0.0
+  ],
+  "reference_frame": "Galactic Cartesian; velocity vector is lab motion relative to Galactic halo",
+  "stage1_incident_speed_km_s": 220.0,
+  "stage1_incident_direction": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "stage1_note": "Monoenergetic normal incidence is a unit test, not a Maxwellian halo flux.",
+  "wimp_mass_grid_GeV": [
+    100.0
+  ],
+  "local_vertical_convention": "inward z is anti-parallel to lab galactic velocity; fixed illustrative orientation"
+}

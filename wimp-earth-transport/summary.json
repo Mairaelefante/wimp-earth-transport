@@ -1,0 +1,647 @@
+{
+  "assumptions_and_limitations": [
+    "Flat laterally infinite homogeneous-at-each-altitude layers; detector is an infinite scoring plane and only first downward crossing is recorded",
+    "One fixed laboratory vertical artificially anti-parallel to galactic laboratory motion; sidereal rotation not modelled",
+    "Stationary targets, elastic spin-independent isospin-conserving WIMP-nucleus interaction and Helm nuclear form factor",
+    "Atmospheric layers, rock composition and effective Other rock component are provisional illustrative fixtures",
+    "Natural xenon isotopic composition approximated by rounded atomic fractions; no detector backgrounds or resolution",
+    "Finite Monte Carlo statistics may not resolve rare scattered arrivals at large optical depth",
+    "The 1/cos(theta) planar crossing estimator has large variance for nearly grazing arrivals; report uncertainty and maximum inverse cosine",
+    "Numerical interpolation of speed-dependent cross section and nuclear recoil CDF, with finite quadrature resolution",
+    "The model includes only trajectories originating at top atmosphere; upward returns below detector depth and finite three-dimensional detector transport are not represented",
+    "No claim of experimental discovery or exclusion of hypothetical parameter choices"
+  ],
+  "benchmark_title": "Earth shielding of hypothetical WIMPs: transport and underground xenon recoils",
+  "configuration_sha256": "40f93bed2cbbf4ab0dd5321995975bb06318b23891077559075ec62517a022c8",
+  "detector_exposure_convention": "Rate per kg xenon per day; no actual integrated exposure, finite geometry, instrumental backgrounds or resolution",
+  "detector_isotopic_fractions": "Atomic (number) fractions; atom/kg uses fraction-weighted mean isotope mass",
+  "fixed_vertical_convention": "inward z is anti-parallel to lab galactic velocity; fixed illustrative orientation",
+  "flights": [
+    {
+      "incoming_flux_cm2_s": 71165.56859165101,
+      "incoming_flux_stderr_cm2_s": 97.28378560109643,
+      "mass_GeV": 100.0,
+      "xe_mean_atom_mass_g": 2.181747242231435e-22,
+      "xenon_isotope_number_fractions": {
+        "124": 0.00095,
+        "126": 0.00089,
+        "128": 0.0191,
+        "129": 0.26401,
+        "130": 0.04071,
+        "131": 0.21232,
+        "132": 0.26909,
+        "134": 0.10436,
+        "136": 0.08857
+      }
+    }
+  ],
+  "flux_estimation_samples": 200000,
+  "flux_normalization": "n_chi * E_halo[max((u-v_lab) dot inward,0)] * 1e5 cm/km, separately evaluated",
+  "flux_sampling_seed": 1991,
+  "histories_per_mass_cross_section": 5000,
+  "histories_per_seed": 2500,
+  "input_sha256": {
+    "atmosphere_layers.csv": "1e810b264fc312be641f12473bb133dc0c036bdb68d881401ffbdd15b7388eb7",
+    "crust_composition.csv": "30488ad66338ccffafc13ea7236a39373e92e6a7ae8ef7d105b5ec57fb2bac81",
+    "detector_config.json": "2ab448b416491ecdf9fa8c6b4f045c325fb19a4587117587ed9dc216ca9a43c4",
+    "halo_parameters.json": "43ac5fbdd7fae22bde4cfa07bbf0a5863438ebeffbcab99d1b967597c1f8b992",
+    "interaction_parameters.json": "07f3199b38eb23525bfa42a388c80c40ea74ec917fd84b69c2586e6ebe57a46e",
+    "simulation_config.json": "25b63e5240d05302e27aa169bcd27f4abd170c6903963e715161ca419b42a9b5"
+  },
+  "integration_convention": "Rates integrated over each bin before dividing by bin width; one first downward scoring-plane crossing per initial history",
+  "rate_estimator": "J_in * (86400 s/day) * (1000 g/kg)/m_Xe_mean * mean_history[(integral isotope-average dsigma/dER * efficiency dER) / cos_theta_at_first_downward_scoring_plane_crossing]",
+  "rate_unit": "events / kg / day / keV",
+  "reference_frame": "Galactic Cartesian; velocity vector is lab motion relative to Galactic halo",
+  "results": [
+    {
+      "collision_multiplicity": {
+        "0": 4986,
+        "1": 14
+      },
+      "collision_target_counts": {
+        "atmosphere": 0,
+        "crust": 14
+      },
+      "convergence_first_seed_vs_combined": {
+        "ballistic": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 8858.059858473182,
+          "first_seed_standard_error": 15622.301745527879,
+          "first_seed_to_combined_stderr_ratio": 6.257879278663206e-35
+        },
+        "collisionless": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 9421.370760970778,
+          "first_seed_standard_error": 16821.323309204665,
+          "first_seed_to_combined_stderr_ratio": 6.335294858965364e-35
+        },
+        "scattered": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 471.6020806894895,
+          "first_seed_standard_error": 510.1025040735409,
+          "first_seed_to_combined_stderr_ratio": 3.8379782794296585e-35
+        },
+        "transport": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 9420.850756799207,
+          "first_seed_standard_error": 16821.594136948766,
+          "first_seed_to_combined_stderr_ratio": 6.33574655477491e-35
+        }
+      },
+      "effective_history_count_by_rate": {
+        "ballistic": 1693.8707472160454,
+        "collisionless": 1569.2110867187328,
+        "scattered": 9.805910138711612,
+        "transport": 1569.0483850992212
+      },
+      "histories": 5000,
+      "histories_per_seed": 2500,
+      "integrated_rates_events_per_kg_day": {
+        "ballistic": 448291.3911720582,
+        "collisionless": 450504.72290982516,
+        "scattered": 1478.0955744043258,
+        "transport": 450445.82254974515
+      },
+      "integrated_statistical_stderr_events_per_kg_day": {
+        "ballistic": 8858.059858473182,
+        "collisionless": 9421.370760970778,
+        "scattered": 471.6020806894895,
+        "transport": 9420.850756799207
+      },
+      "integrated_stderr_events_per_kg_day": {
+        "ballistic": 8879.23247592343,
+        "collisionless": 9441.477077344347,
+        "scattered": 471.60640919932644,
+        "transport": 9440.952928749883
+      },
+      "max_inverse_arrival_cosine": 50.89665210392413,
+      "max_relative_energy_error": 7.598219534989803e-15,
+      "max_relative_momentum_error": 2.3402676360888483e-16,
+      "mchi_GeV": 100.0,
+      "mean_arrival_cosine": 0.815314043396806,
+      "mean_arrival_speed_km_s": 393.2660365144973,
+      "mean_incoming_speed_km_s": 393.42874750255106,
+      "per_seed_integrated_rates_events_per_kg_day": [
+        {
+          "ballistic": 466863.18019409064,
+          "collisionless": 469875.5179067858,
+          "scattered": 936.9325330023992,
+          "transport": 469695.5295317131
+        },
+        {
+          "ballistic": 429719.6021500257,
+          "collisionless": 431133.92791286454,
+          "scattered": 2019.258615806253,
+          "transport": 431196.1155677773
+        }
+      ],
+      "per_seed_integrated_statistical_stderr_events_per_kg_day": [
+        {
+          "ballistic": 15622.301745527879,
+          "collisionless": 16821.323309204665,
+          "scattered": 510.1025040735409,
+          "transport": 16821.594136948766
+        },
+        {
+          "ballistic": 8342.142638528549,
+          "collisionless": 8477.188573273344,
+          "scattered": 793.3304126881545,
+          "transport": 8474.55942074173
+        }
+      ],
+      "precision_target_relative_stderr": 0.35,
+      "rate_differential_units": "events / kg / day / keV",
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "rate_stderr_includes_flux_estimation": true,
+      "recoil_bin_edges_keV": [
+        0.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0
+      ],
+      "scattered_component_isolated": true,
+      "scattered_component_well_sampled": false,
+      "scattered_contribution_rare_statistics_warning": true,
+      "scattered_reached": 14,
+      "seeds": [
+        20261102,
+        20261103
+      ],
+      "sigma_p_cm2": 1e-36,
+      "statuses": {
+        "reached": 5000
+      },
+      "unresolved_collisionless_bins": 2,
+      "zero_scatter_expected_count": 4988.697764555823,
+      "zero_scatter_expected_variance": 11.258379697656189,
+      "zero_scatter_pass": true,
+      "zero_scatter_reached": 4986,
+      "zero_scatter_z": -0.8040186054955806
+    },
+    {
+      "collision_multiplicity": {
+        "0": 4903,
+        "1": 97
+      },
+      "collision_target_counts": {
+        "atmosphere": 0,
+        "crust": 97
+      },
+      "convergence_first_seed_vs_combined": {
+        "ballistic": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 59690.893623549506,
+          "first_seed_standard_error": 94207.05348520116,
+          "first_seed_to_combined_stderr_ratio": 5.600104220381511e-35
+        },
+        "collisionless": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 94213.70760970778,
+          "first_seed_standard_error": 168213.2330920465,
+          "first_seed_to_combined_stderr_ratio": 6.335294858965358e-35
+        },
+        "scattered": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 17658.991099597653,
+          "first_seed_standard_error": 28441.660105592364,
+          "first_seed_to_combined_stderr_ratio": 5.714915639968386e-35
+        },
+        "transport": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 58712.00545790099,
+          "first_seed_standard_error": 80790.28627310442,
+          "first_seed_to_combined_stderr_ratio": 4.882620852597129e-35
+        }
+      },
+      "effective_history_count_by_rate": {
+        "ballistic": 2553.705993810196,
+        "collisionless": 1569.2110867187312,
+        "scattered": 51.29958560302835,
+        "transport": 2660.4658618510916
+      },
+      "histories": 5000,
+      "histories_per_seed": 2500,
+      "integrated_rates_events_per_kg_day": {
+        "ballistic": 4312020.048103484,
+        "collisionless": 4505047.229098255,
+        "scattered": 127121.43973573126,
+        "transport": 4426725.938582504
+      },
+      "integrated_statistical_stderr_events_per_kg_day": {
+        "ballistic": 59690.893623549506,
+        "collisionless": 94213.70760970778,
+        "scattered": 17658.991099597653,
+        "transport": 58712.00545790099
+      },
+      "integrated_stderr_events_per_kg_day": {
+        "ballistic": 59981.235448240914,
+        "collisionless": 94414.77077344347,
+        "scattered": 17659.84611174619,
+        "transport": 59023.034263624424
+      },
+      "max_inverse_arrival_cosine": 17.15697375273602,
+      "max_relative_energy_error": 1.2879875996720951e-14,
+      "max_relative_momentum_error": 2.651432907355575e-16,
+      "mchi_GeV": 100.0,
+      "mean_arrival_cosine": 0.8157891107812622,
+      "mean_arrival_speed_km_s": 392.32150884393343,
+      "mean_incoming_speed_km_s": 393.42874750255106,
+      "per_seed_integrated_rates_events_per_kg_day": [
+        {
+          "ballistic": 4449329.052973819,
+          "collisionless": 4698755.179067863,
+          "scattered": 145401.3658625107,
+          "transport": 4519308.444751084
+        },
+        {
+          "ballistic": 4174711.0432331483,
+          "collisionless": 4311339.279128646,
+          "scattered": 108841.51360895188,
+          "transport": 4334143.432413924
+        }
+      ],
+      "per_seed_integrated_statistical_stderr_events_per_kg_day": [
+        {
+          "ballistic": 94207.05348520116,
+          "collisionless": 168213.2330920465,
+          "scattered": 28441.660105592364,
+          "transport": 80790.28627310442
+        },
+        {
+          "ballistic": 73244.82710005755,
+          "collisionless": 84771.88573273372,
+          "scattered": 20938.33750159513,
+          "transport": 85189.35852735658
+        }
+      ],
+      "precision_target_relative_stderr": 0.35,
+      "rate_differential_units": "events / kg / day / keV",
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "rate_stderr_includes_flux_estimation": true,
+      "recoil_bin_edges_keV": [
+        0.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0
+      ],
+      "scattered_component_isolated": true,
+      "scattered_component_well_sampled": true,
+      "scattered_contribution_rare_statistics_warning": false,
+      "scattered_reached": 93,
+      "seeds": [
+        20261102,
+        20261103
+      ],
+      "sigma_p_cm2": 1e-35,
+      "statuses": {
+        "escaped": 4,
+        "reached": 4996
+      },
+      "unresolved_collisionless_bins": 2,
+      "zero_scatter_expected_count": 4888.83417874884,
+      "zero_scatter_expected_variance": 107.49378323690532,
+      "zero_scatter_pass": true,
+      "zero_scatter_reached": 4903,
+      "zero_scatter_z": 1.3663126314472411
+    },
+    {
+      "collision_multiplicity": {
+        "0": 3995,
+        "1": 846,
+        "2": 135,
+        "3": 16,
+        "4": 4,
+        "5": 3,
+        "6": 1
+      },
+      "collision_target_counts": {
+        "atmosphere": 0,
+        "crust": 1201
+      },
+      "convergence_first_seed_vs_combined": {
+        "ballistic": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 281806.52979997254,
+          "first_seed_standard_error": 404981.75476710306,
+          "first_seed_to_combined_stderr_ratio": 5.099236742203273e-35
+        },
+        "collisionless": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 942137.0760970805,
+          "first_seed_standard_error": 1682132.3309204704,
+          "first_seed_to_combined_stderr_ratio": 6.335294858965361e-35
+        },
+        "scattered": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 652645.3555393358,
+          "first_seed_standard_error": 1014282.6252971132,
+          "first_seed_to_combined_stderr_ratio": 5.514453817245838e-35
+        },
+        "transport": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 676765.5988452124,
+          "first_seed_standard_error": 1051165.624036995,
+          "first_seed_to_combined_stderr_ratio": 5.511294833923704e-35
+        }
+      },
+      "effective_history_count_by_rate": {
+        "ballistic": 3663.211248529114,
+        "collisionless": 1569.211086718723,
+        "scattered": 451.3698904030917,
+        "transport": 2482.007913065551
+      },
+      "histories": 5000,
+      "histories_per_seed": 2500,
+      "integrated_rates_events_per_kg_day": {
+        "ballistic": 32983156.17837603,
+        "collisionless": 45050472.29098252,
+        "scattered": 14535996.23460574,
+        "transport": 47506632.152907744
+      },
+      "integrated_statistical_stderr_events_per_kg_day": {
+        "ballistic": 281806.52979997254,
+        "collisionless": 942137.0760970805,
+        "scattered": 652645.3555393358,
+        "transport": 676765.5988452124
+      },
+      "integrated_stderr_events_per_kg_day": {
+        "ballistic": 285390.72274476907,
+        "collisionless": 944147.7077344374,
+        "scattered": 652947.784112806,
+        "transport": 679874.3428757282
+      },
+      "max_inverse_arrival_cosine": 20.34779838585199,
+      "max_relative_energy_error": 6.350475700855895e-14,
+      "max_relative_momentum_error": 3.4171055612253254e-16,
+      "mchi_GeV": 100.0,
+      "mean_arrival_cosine": 0.8117826331180161,
+      "mean_arrival_speed_km_s": 377.89976991275194,
+      "mean_incoming_speed_km_s": 393.42874750255106,
+      "per_seed_integrated_rates_events_per_kg_day": [
+        {
+          "ballistic": 33559880.14972427,
+          "collisionless": 46987551.79067859,
+          "scattered": 15521244.17378717,
+          "transport": 48732496.04277359
+        },
+        {
+          "ballistic": 32406432.20702779,
+          "collisionless": 43113392.79128645,
+          "scattered": 13550748.29542431,
+          "transport": 46280768.26304191
+        }
+      ],
+      "per_seed_integrated_statistical_stderr_events_per_kg_day": [
+        {
+          "ballistic": 404981.75476710306,
+          "collisionless": 1682132.3309204704,
+          "scattered": 1014282.6252971132,
+          "transport": 1051165.624036995
+        },
+        {
+          "ballistic": 391722.8889243482,
+          "collisionless": 847718.8573273377,
+          "scattered": 821327.3452284692,
+          "transport": 852209.7247955234
+        }
+      ],
+      "precision_target_relative_stderr": 0.35,
+      "rate_differential_units": "events / kg / day / keV",
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "rate_stderr_includes_flux_estimation": true,
+      "recoil_bin_edges_keV": [
+        0.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0
+      ],
+      "scattered_component_isolated": true,
+      "scattered_component_well_sampled": true,
+      "scattered_contribution_rare_statistics_warning": false,
+      "scattered_reached": 991,
+      "seeds": [
+        20261102,
+        20261103
+      ],
+      "sigma_p_cm2": 1e-34,
+      "statuses": {
+        "escaped": 14,
+        "reached": 4986
+      },
+      "unresolved_collisionless_bins": 2,
+      "zero_scatter_expected_count": 4021.4596357609703,
+      "zero_scatter_expected_variance": 759.1583935914034,
+      "zero_scatter_pass": true,
+      "zero_scatter_reached": 3995,
+      "zero_scatter_z": -0.9603237339798769
+    },
+    {
+      "collision_multiplicity": {
+        "0": 1954,
+        "1": 1658,
+        "2": 844,
+        "3": 314,
+        "4": 113,
+        "5": 54,
+        "6": 22,
+        "7": 13,
+        "8": 8,
+        "9": 5,
+        "10": 3,
+        "11": 4,
+        "12": 3,
+        "13": 1,
+        "14": 2,
+        "16": 1,
+        "17": 1
+      },
+      "collision_target_counts": {
+        "atmosphere": 5,
+        "crust": 5521
+      },
+      "convergence_first_seed_vs_combined": {
+        "ballistic": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 420501.3957500594,
+          "first_seed_standard_error": 597671.9300434452,
+          "first_seed_to_combined_stderr_ratio": 5.04331607806107e-35
+        },
+        "collisionless": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 4183088.6178710302,
+          "first_seed_standard_error": 7468667.549286868,
+          "first_seed_to_combined_stderr_ratio": 6.335294858965354e-35
+        },
+        "scattered": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 5347413.570667713,
+          "first_seed_standard_error": 4822081.945031297,
+          "first_seed_to_combined_stderr_ratio": 3.1997170988398057e-35
+        },
+        "transport": {
+          "N_combined": 5000,
+          "N_first_seed": 2500,
+          "combined_standard_error": 5132798.794352618,
+          "first_seed_standard_error": 4369439.325590022,
+          "first_seed_to_combined_stderr_ratio": 3.020593214352088e-35
+        }
+      },
+      "effective_history_count_by_rate": {
+        "ballistic": 4119.756507986328,
+        "collisionless": 1569.2110867187298,
+        "scattered": 850.7145490689895,
+        "transport": 1469.8367083486535
+      },
+      "histories": 5000,
+      "histories_per_seed": 2500,
+      "integrated_rates_events_per_kg_day": {
+        "ballistic": 64319605.62226996,
+        "collisionless": 200024096.9719624,
+        "scattered": 171194818.4494597,
+        "transport": 234170916.687787
+      },
+      "integrated_statistical_stderr_events_per_kg_day": {
+        "ballistic": 420501.3957500594,
+        "collisionless": 4183088.6178710302,
+        "scattered": 5347413.570667713,
+        "transport": 5132798.794352618
+      },
+      "integrated_stderr_events_per_kg_day": {
+        "ballistic": 429595.4888892263,
+        "collisionless": 4192015.822340895,
+        "scattered": 5352532.047452041,
+        "transport": 5142771.225943411
+      },
+      "max_inverse_arrival_cosine": 69.95383354119784,
+      "max_relative_energy_error": 7.258083023486961e-14,
+      "max_relative_momentum_error": 3.791885558006322e-16,
+      "mchi_GeV": 100.0,
+      "mean_arrival_cosine": 0.8009089573277701,
+      "mean_arrival_speed_km_s": 329.99062885799344,
+      "mean_incoming_speed_km_s": 393.42874750255106,
+      "per_seed_integrated_rates_events_per_kg_day": [
+        {
+          "ballistic": 64933892.90701511,
+          "collisionless": 208624729.95061308,
+          "scattered": 164127696.98071405,
+          "transport": 228244117.5715191
+        },
+        {
+          "ballistic": 63705318.33752484,
+          "collisionless": 191423463.99331167,
+          "scattered": 178261939.91820538,
+          "transport": 240097715.80405495
+        }
+      ],
+      "per_seed_integrated_statistical_stderr_events_per_kg_day": [
+        {
+          "ballistic": 597671.9300434452,
+          "collisionless": 7468667.549286868,
+          "scattered": 4822081.945031297,
+          "transport": 4369439.325590022
+        },
+        {
+          "ballistic": 591534.8452958432,
+          "collisionless": 3763871.726533389,
+          "scattered": 9545143.632483903,
+          "transport": 9288889.382624216
+        }
+      ],
+      "precision_target_relative_stderr": 0.35,
+      "rate_differential_units": "events / kg / day / keV",
+      "rate_precision_met": {
+        "ballistic": true,
+        "collisionless": true,
+        "scattered": true,
+        "transport": true
+      },
+      "rate_stderr_includes_flux_estimation": true,
+      "recoil_bin_edges_keV": [
+        0.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0,
+        50.0
+      ],
+      "scattered_component_isolated": true,
+      "scattered_component_well_sampled": true,
+      "scattered_contribution_rare_statistics_warning": false,
+      "scattered_reached": 2976,
+      "seeds": [
+        20261102,
+        20261103
+      ],
+      "sigma_p_cm2": 4.44e-34,
+      "statuses": {
+        "escaped": 70,
+        "reached": 4930
+      },
+      "unresolved_collisionless_bins": 2,
+      "zero_scatter_expected_count": 1995.6187887425947,
+      "zero_scatter_expected_variance": 1145.0348698405178,
+      "zero_scatter_pass": true,
+      "zero_scatter_reached": 1954,
+      "zero_scatter_z": -1.2299291092930145
+    }
+  ],
+  "scientific_status": "Illustrative controlled reference benchmark, not measured laboratory constraints",
+  "seeds": [
+    20261102,
+    20261103
+  ],
+  "task_sections": "1-9 plus appendices A-B",
+  "uncertainty_method": "Unbiased across-independent-initial-history sample variance, plus independent flux-estimation normalisation variance in quadrature per bin; bin uncertainties are correlated"
+}
