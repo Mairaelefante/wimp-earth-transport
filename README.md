@@ -1,4 +1,4 @@
-![WIMP Earth Transport](cover.png)
+![WIMP Earth Transport](cover.svg)
 
 **[Explore the source code](wimp-earth-transport/) · [Scientific notes](wimp-earth-transport/SCIENTIFIC_NOTES.md) · [Benchmark report](wimp-earth-transport/BENCHMARK_REPORT.md)**
 
